@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yeoeun Choi Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#f6f7f5; --panel:#eceee9; --ink:#1c232b; --ink-2:#4a5460; --rule:#d5d9d2;
+  --accent:#34467e; --accent-soft:#e3e7f2; --warn:#8a5a10; --warn-soft:#f3ead9;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --paper:#14181d; --panel:#1c2229; --ink:#e6e9ec; --ink-2:#a3adb8; --rule:#2d353e;
+  --accent:#9fb2ea; --accent-soft:#232c42; --warn:#e0b366; --warn-soft:#2e261a;
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#14181d; --panel:#1c2229; --ink:#e6e9ec; --ink-2:#a3adb8; --rule:#2d353e;
+  --accent:#9fb2ea; --accent-soft:#232c42; --warn:#e0b366; --warn-soft:#2e261a;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:16px/1.6 var(--sans);padding-inline:20px;padding-block:0}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:260px 1fr;gap:64px;padding-block:64px 96px}
+aside{position:sticky;top:calc(env(safe-area-inset-top,0px) + 48px);align-self:start;display:flex;flex-direction:column;gap:24px}
+.name{font:500 2.1rem/1.1 var(--serif);margin:0;text-wrap:balance}
+.role{color:var(--ink-2);margin:0;font-size:.95rem}
+.label{font:500 .72rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.contact{display:flex;flex-direction:column;gap:4px;font-size:.92rem}
+.contact span{user-select:all}
+nav{display:flex;flex-direction:column;gap:6px;font-size:.92rem;border-top:1px solid var(--rule);padding-top:20px}
+nav a{color:var(--ink-2);text-decoration:none}
+nav a:hover{color:var(--accent)}
+main{display:flex;flex-direction:column;gap:72px;min-width:0}
+section{display:flex;flex-direction:column;gap:24px}
+h2{font:500 1.6rem/1.2 var(--serif);margin:0;text-wrap:balance}
+h3{font:600 1.3rem/1.25 var(--serif);margin:0;text-wrap:balance}
+p{margin:0;max-width:66ch}
+.thesis{font:400 clamp(1.5rem,3.2vw,2.1rem)/1.3 var(--serif);max-width:28ch;margin:0;text-wrap:balance}
+.thesis em{color:var(--accent);font-style:italic}
+.lede{display:flex;flex-direction:column;gap:16px;color:var(--ink-2)}
+.lede p{color:var(--ink)}
+.questions{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:0;padding:0;list-style:none}
+.questions li{border-top:2px solid var(--accent);padding-top:12px;font-size:.95rem}
+.questions b{display:block;font:600 1rem/1.3 var(--serif);margin-bottom:4px}
+.thread{display:flex;flex-direction:column;gap:8px;border-bottom:1px solid var(--rule);padding-bottom:16px}
+.thread p{color:var(--ink-2)}
+.project{display:flex;flex-direction:column;gap:14px;padding-block:8px 28px;border-bottom:1px solid var(--rule)}
+.project:last-child{border-bottom:0}
+.meta{font:400 .82rem/1.4 var(--mono);color:var(--ink-2)}
+.fields{display:grid;grid-template-columns:110px 1fr;gap:10px 20px;margin:0}
+.fields dt{font:500 .72rem/1.9 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.fields dd{margin:0;max-width:62ch}
+.figs{display:flex;flex-wrap:wrap;gap:12px}
+.fig{background:var(--accent-soft);border-radius:4px;padding:10px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.fig b{font:500 1.05rem/1.2 var(--mono);color:var(--accent);font-variant-numeric:tabular-nums}
+.fig span{font-size:.8rem;color:var(--ink-2)}
+.fell{background:var(--warn-soft);border-radius:4px;padding:12px 16px;font-size:.93rem;max-width:66ch}
+.fell b{color:var(--warn);font:500 .72rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:6px}
+.edu{display:flex;flex-direction:column;gap:0;margin:0;padding:0;list-style:none}
+.edu li{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding-block:12px;border-bottom:1px solid var(--rule)}
+.edu li span:first-child b{font-weight:600}
+.edu .when{font:400 .85rem/1.6 var(--mono);color:var(--ink-2);text-align:right;font-variant-numeric:tabular-nums}
+.edu small{grid-column:1/-1;color:var(--ink-2);font-size:.88rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.tags li{background:var(--panel);border-radius:3px;padding:4px 10px;font-size:.85rem}
+.why{background:var(--panel);padding:28px;border-radius:6px;display:flex;flex-direction:column;gap:14px}
+.why p{font:400 1.08rem/1.6 var(--serif)}
+@media (max-width:820px){
+  .wrap{grid-template-columns:1fr;gap:40px;padding-block:40px 64px}
+  aside{position:static}
+  nav{flex-direction:row;flex-wrap:wrap;gap:6px 16px}
+  .fields{grid-template-columns:1fr;gap:2px}
+  .fields dd{margin-bottom:10px}
+  .edu li{grid-template-columns:1fr}
+  .edu .when{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <aside>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <h1 class="name">Yeoeun Choi</h1>
+      <p class="role">Data scientist working toward a PhD in human-centered computing and AI ethics</p>
+    </div>
+    <div class="contact">
+      <span class="label">Contact</span>
+      <span>ychoi0908@gmail.com</span>
+      <a href="https://www.linkedin.com/in/yeoeunchoi/">linkedin.com/in/yeoeunchoi</a>
+    </div>
+    <nav aria-label="Sections">
+      <a href="#interests">Research interests</a>
+      <a href="#fairness">Fairness &amp; accountability</a>
+      <a href="#reliability">Reliability of language AI</a>
+      <a href="#systems">Data systems for service work</a>
+      <a href="#why">Why this work</a>
+      <a href="#education">Education &amp; skills</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section id="interests">
+      <p class="thesis">I study when people should trust an AI system, and <em>what the system owes them</em> in return.</p>
+      <div class="lede">
+        <p>My projects keep returning to one pattern: a model looks accurate on its headline metric, and the real problem shows up somewhere else. It shows up in a subgroup, in the questions it should refuse, or in labels nobody checked. I build the systems, measure them, and then look for where they fail the people who depend on them.</p>
+      </div>
+      <ul class="questions">
+        <li><b>Trust calibration</b>How can explanations help non-experts decide when to rely on a model and when to push back?</li>
+        <li><b>Fairness in practice</b>How do proxy variables and biased labels carry old inequities into automated decisions?</li>
+        <li><b>Equitable access</b>How can AI tools widen access to education and services instead of narrowing it?</li>
+      </ul>
+    </section>
+
+    <section id="fairness">
+      <div class="thread">
+        <span class="label">Thread 1</span>
+        <h2>Fairness, explanation, and accountability</h2>
+        <p>Auditing high-stakes models for disparate impact, and deciding what an affected person deserves to be told.</p>
+      </div>
+
+      <article class="project">
+        <span class="meta">Carnegie Mellon · Ethics &amp; AI · 2025 · team project</span>
+        <h3>Responsible AI for personalized auto insurance</h3>
+        <dl class="fields">
+          <dt>Question</dt><dd>Can an insurer personalize claim predictions and premiums while staying fair across gender, income, and age, and while explaining decisions to customers?</dd>
+          <dt>Method</dt><dd>Random Forest models for claim likelihood and claim amount. SHAP and DiCE counterfactuals for explanation. Fairlearn MetricFrame for intersectional audits, then ExponentiatedGradient (equalized odds) and BoundedGroupLoss for mitigation. A LLaMA 3.1 8B insurance assistant with RAG, red-teamed with the LlamaGuard S1–S13 taxonomy and ALERT prompts.</dd>
+          <dt>Finding</dt><dd>The intersectional audit found the worst-served group: low-income women under 30, at 69% accuracy against 84% for the best group. Mitigation cut the demographic parity gap by about 72% and kept over 90% of model performance.</dd>
+        </dl>
+        <div class="figs">
+          <div class="fig"><b>0.11 → 0.03</b><span>demographic parity gap</span></div>
+          <div class="fig"><b>0.13 → 0.05</b><span>equalized odds difference</span></div>
+          <div class="fig"><b>$780 → $280</b><span>income-based error gap</span></div>
+        </div>
+        <p class="fell"><b>Where it fell short</b>The LLM assistant refused clearly discriminatory requests, but it also blocked ordinary questions such as "How do DUIs affect premiums?" Over-blocking erodes trust and access too, so safety filters need their own fairness audit.</p>
+      </article>
+
+      <article class="project">
+        <span class="meta">Harvard Extension · CSCI E-184 Data Science &amp; AI · 2026 · team of six</span>
+        <h3>When cost is mistaken for need</h3>
+        <dl class="fields">
+          <dt>Question</dt><dd>How can health systems ethically use AI risk scores when the data used to predict patient need reflects historical inequities in access to care?</dd>
+          <dt>Method</dt><dd>Case analysis of the population-health algorithm studied by Obermeyer et al. (Science, 2019), compared with the UnitedHealth nH Predict litigation, organized around bias, transparency, and accountability.</dd>
+          <dt>Finding</dt><dd>The model excluded race but predicted cost rather than illness. Because patients with less access to care generate less spending, equally sick patients were scored as lower need. A tool labeled "advisory" also becomes binding once it is tied to operational targets.</dd>
+        </dl>
+        <p class="fell"><b>Takeaway</b>Race-neutral inputs do not produce race-neutral outcomes when the label itself is biased. Fairness rules have to be set before deployment, not established afterward in court.</p>
+      </article>
+    </section>
+
+    <section id="reliability">
+      <div class="thread">
+        <span class="label">Thread 2</span>
+        <h2>Reliability of language AI</h2>
+        <p>Building NLP and LLM systems, then testing whether their outputs deserve the confidence they project.</p>
+      </div>
+
+      <article class="project">
+        <span class="meta">Harvard Extension · CSCI E-222 Large Language Models · 2026 · individual</span>
+        <h3>Retrieval-augmented generation for open-domain question answering</h3>
+        <dl class="fields">
+          <dt>Question</dt><dd>Does grounding a language model in retrieved passages make its answers more accurate, and can it recognize questions it cannot answer?</dd>
+          <dt>Method</dt><dd>DPR bi-encoder retriever, FAISS exact inner-product index over about 20,000 passages, and a Flan-T5 generator. Evaluated on 500 held-out SQuAD v2 questions, 258 of them deliberately unanswerable, with EM, F1, ROUGE-L, and Recall@K.</dd>
+          <dt>Finding</dt><dd>Retrieval raised exact match about 15× over the closed-book baseline, and accuracy climbed with each added passage up to K = 5.</dd>
+        </dl>
+        <div class="figs">
+          <div class="fig"><b>0.004 → 0.062</b><span>exact match, closed-book → RAG</span></div>
+          <div class="fig"><b>0.116</b><span>Recall@1, off-the-shelf retriever</span></div>
+          <div class="fig"><b>258 / 258</b><span>unanswerable questions still answered</span></div>
+        </div>
+        <p class="fell"><b>Where it fell short</b>The system never said "I don't know." Every unanswerable question received a confident answer. I proposed an answerability classifier on top of retrieval scores and fine-tuning the query encoder to close the domain gap.</p>
+      </article>
+
+      <article class="project">
+        <span class="meta">Harvard Summer School · CSCI S-89 Deep Learning · 2026 · individual</span>
+        <h3>Domain transfer for sentiment: airline complaints to ChatGPT discourse</h3>
+        <dl class="fields">
+          <dt>Question</dt><dd>How well does a sentiment model trained on one domain transfer to another, and how far can we trust machine-generated labels?</dd>
+          <dt>Method</dt><dd>Bidirectional LSTM (1.3M parameters) trained on 14,427 human-labeled airline tweets, tested zero-shot on 201,162 ChatGPT tweets, then fine-tuned on 25,000 in-domain examples. A TF-IDF + logistic regression baseline ran on identical splits.</dd>
+          <dt>Finding</dt><dd>Zero-shot transfer fell below the majority-class baseline. Fine-tuning recovered most of the gap, and the linear baseline tracked the BiLSTM closely, so the gap came from the data, not the architecture.</dd>
+        </dl>
+        <div class="figs">
+          <div class="fig"><b>0.353 → 0.731</b><span>accuracy, zero-shot → fine-tuned</span></div>
+          <div class="fig"><b>52.7%</b><span>my labels agreed with the dataset's</span></div>
+        </div>
+        <p class="fell"><b>Where it fell short</b>I hand-labeled 150 tweets blind as a sanity check. My judgments matched the dataset's machine-generated labels only 52.7% of the time. The fine-tuned model learned to reproduce the labeling tool faithfully, which is different from learning human sentiment.</p>
+      </article>
+
+      <article class="project">
+        <span class="meta">Harvard Extension · CSCI E-89b Natural Language Processing · 2025 · individual</span>
+        <h3>Fake news detection with deep learning</h3>
+        <dl class="fields">
+          <dt>Question</dt><dd>What does it take to detect fake news reliably, and does model complexity pay off?</dd>
+          <dt>Method</dt><dd>Compared TF-IDF logistic regression, a dense network, LSTM, BiLSTM, and DistilBERT on 44,898 news articles, with error analysis, precision-recall curves, and training-cost comparison on free Colab hardware.</dd>
+          <dt>Finding</dt><dd>BiLSTM reached 98.86% accuracy, but logistic regression was only 0.43 points behind. On this dataset, fake news is detected mostly through vocabulary, which suggests the model learns source style rather than truthfulness.</dd>
+        </dl>
+        <div class="figs">
+          <div class="fig"><b>98.86%</b><span>BiLSTM accuracy</span></div>
+          <div class="fig"><b>98.43%</b><span>logistic regression accuracy</span></div>
+        </div>
+        <p class="fell"><b>Where it fell short</b>DistilBERT collapsed to 52.29% with limited compute, and the LSTM peaked and then degraded. Near-perfect scores on a benchmark say little about how a detector holds up on new sources.</p>
+      </article>
+    </section>
+
+    <section id="systems">
+      <div class="thread">
+        <span class="label">Thread 3</span>
+        <h2>Data systems for service work</h2>
+        <p>Applied projects with real clients, where the users were staff with little time and sensitive data.</p>
+      </div>
+
+      <article class="project">
+        <span class="meta">Carnegie Mellon · MSBA Capstone · 2025 · team of four</span>
+        <h3>Decision support for an early intervention provider</h3>
+        <dl class="fields">
+          <dt>Problem</dt><dd>A provider of therapy services for young children ran 14 years of operations across five disconnected spreadsheets, so matching therapists to families was slow and error-prone.</dd>
+          <dt>My role</dt><dd>Cleaned and unified 30,000+ referral attempts, 66,000+ visit records, and 266 therapists under shared IDs. Automated preprocessing with Excel macros and Power Automate. Built dashboards for referral volume, caseload, therapist availability, and zip-code coverage.</dd>
+          <dt>Human side</dt><dd>After staff feedback, we moved the deliverable away from backend automation and toward clearer dashboards, and added the therapist comparison and zip-code filters staff asked for. We limited automation to non-sensitive fields for HIPAA compliance.</dd>
+        </dl>
+        <p class="fell"><b>Where it fell short</b>A GPT pipeline for parsing free-text therapist availability missed recurring schedules and multi-location details. I documented these failure modes and designed a manual-verification fallback, so a person reviews the cases the model gets wrong.</p>
+      </article>
+
+      <article class="project">
+        <span class="meta">University of Illinois Chicago · Supply Chain Capstone · 2023 · team of three</span>
+        <h3>Sustainability drivers of operational performance</h3>
+        <dl class="fields">
+          <dt>Problem</dt><dd>For the UIC Center for Supply Chain and Logistics: do environmental measures such as emissions, energy, and water relate to a company's operational performance?</dd>
+          <dt>Method</dt><dd>Built a standardized ESG and financial dataset from S&amp;P Global and company sustainability reports across five industries, reconciling inconsistent units and field names. Used regression, correlation, and clustering in Excel and SPSS, with Tableau dashboards.</dd>
+          <dt>Finding</dt><dd>ESG and performance were related non-linearly. I delivered a repeatable methodology the sponsor could apply as new reports are published.</dd>
+        </dl>
+      </article>
+    </section>
+
+    <section id="why">
+      <div class="why">
+        <span class="label">Why this work</span>
+        <p>My parents supported the education of children who were gifted but could not afford school. I grew up reading the thank-you letters those students sent after they reached university. Today my parents fund education for incarcerated people so they can find stable work after release.</p>
+        <p>They gave money. I want to contribute through knowledge, because everyone deserves access to education. As AI systems start to decide who receives care, credit, and information, I want to make sure those systems are fair and understandable to the people they affect.</p>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="thread">
+        <span class="label">Background</span>
+        <h2>Education &amp; skills</h2>
+      </div>
+      <ul class="edu">
+        <li><span><b>Harvard University</b>, ALM, Data Science (Extension Studies)</span><span class="when">in progress</span>
+          <small>Coursework: Large Language Models, Deep Learning, Natural Language Processing, Data Science &amp; AI, Mathematical Statistics, Foundations of Data Science &amp; Engineering</small></li>
+        <li><span><b>University of Southern California</b>, MS Applied Data Science</span><span class="when">in progress</span></li>
+        <li><span><b>Carnegie Mellon University</b>, MS Business Analytics · GPA 3.8</span><span class="when">2025</span></li>
+        <li><span><b>University of Illinois Chicago</b>, MS Supply Chain &amp; Operations Mgmt · GPA 4.0</span><span class="when">2023</span></li>
+        <li><span><b>California State University, Sacramento</b>, BS Business Administration · Summa Cum Laude</span><span class="when">2022</span></li>
+      </ul>
+      <ul class="tags" aria-label="Skills">
+        <li>Python</li><li>R</li><li>SQL</li><li>TensorFlow / Keras</li><li>Hugging Face</li><li>FAISS</li><li>Fairlearn</li><li>SHAP / DiCE</li><li>LlamaGuard</li><li>Tableau</li><li>Power BI</li><li>Spark</li><li>AWS</li><li>Korean (native)</li><li>English (fluent)</li>
+      </ul>
+    </section>
+  </main>
+</div>
+</body>
+</html>
