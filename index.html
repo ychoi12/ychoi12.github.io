@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Yeoeun Choi: research portfolio in human-centered AI, trust calibration, explanation, and fairness.">
+<title>Yeoeun Choi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F4F6F5;
+  --surface:#FFFFFF;
+  --ink:#15212A;
+  --ink-2:#3C4A55;
+  --muted:#65737E;
+  --rule:#D5DCDA;
+  --rule-soft:#E6EBE9;
+  --accent:#1D5C86;
+  --accent-soft:#E3EDF4;
+  --gap:#B9720A;
+  --gap-soft:#F6EBD9;
+  --track:#E7ECEA;
+  --serif:"Newsreader", "Iowan Old Style", Georgia, serif;
+  --sans:"Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#0E151A; --surface:#141E25; --ink:#E5ECEF; --ink-2:#C0CBD2; --muted:#8E9CA6;
+    --rule:#26343E; --rule-soft:#1D2931; --accent:#83B9E2; --accent-soft:#1A2D3B;
+    --gap:#E9AE4E; --gap-soft:#33281A; --track:#1F2B33;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#0E151A; --surface:#141E25; --ink:#E5ECEF; --ink-2:#C0CBD2; --muted:#8E9CA6;
+  --rule:#26343E; --rule-soft:#1D2931; --accent:#83B9E2; --accent-soft:#1A2D3B;
+  --gap:#E9AE4E; --gap-soft:#33281A; --track:#1F2B33;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;text-wrap:balance;margin:0;color:var(--ink)}
+p{margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:24px;display:grid;grid-template-columns:260px minmax(0,1fr);gap:64px}
+@media (max-width:960px){.wrap{grid-template-columns:1fr;gap:0;padding-inline:18px}}
+
+/* Rail */
+.rail{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;padding-block:48px;display:flex;flex-direction:column;gap:28px;max-height:100vh;overflow:auto}
+.rail .name{font-family:var(--serif);font-size:30px;line-height:1.1;font-weight:500}
+.rail .role{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
+.rail nav{display:flex;flex-direction:column;gap:2px;border-left:1px solid var(--rule);}
+.rail nav a{color:var(--ink-2);text-decoration:none;font-size:14px;padding:5px 0 5px 14px;margin-left:-1px;border-left:2px solid transparent}
+.rail nav a:hover{color:var(--accent);border-left-color:var(--accent)}
+.contact{display:flex;flex-direction:column;gap:10px;font-size:14px}
+.contact .label{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.email-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.email{font-family:var(--mono);font-size:13px;user-select:all;color:var(--ink)}
+.copy{font:500 12px var(--sans);color:var(--accent);background:transparent;border:1px solid var(--rule);border-radius:4px;padding:2px 8px;cursor:pointer}
+.copy:hover{border-color:var(--accent)}
+@media (max-width:960px){
+  .rail{position:static;max-height:none;padding-block:32px 8px;gap:18px}
+  .rail nav{flex-direction:row;flex-wrap:wrap;border-left:0;gap:6px 16px}
+  .rail nav a{padding:0;border-left:0;margin:0}
+}
+
+/* Main */
+main{padding-block:48px 80px;min-width:0}
+section{padding-block:48px;border-top:1px solid var(--rule)}
+section:first-child{border-top:0;padding-top:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sec-head{display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+.sec-head h2{font-size:32px;line-height:1.15}
+.lede{font-size:17px;color:var(--ink-2);max-width:62ch}
+
+/* Hero */
+.hero{display:flex;flex-direction:column;gap:22px;padding-top:8px}
+.hero h1{font-size:clamp(32px,4.6vw,48px);line-height:1.12;max-width:20ch;letter-spacing:-.005em}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero .bio{font-size:17px;color:var(--ink-2);max-width:64ch;display:flex;flex-direction:column;gap:14px}
+.status{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:12px;padding:4px 10px;border:1px solid var(--rule);border-radius:999px;color:var(--ink-2);background:var(--surface)}
+.chip.on{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+
+/* Questions */
+.questions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+@media (max-width:760px){.questions{grid-template-columns:1fr;gap:22px}}
+.q{display:flex;flex-direction:column;gap:10px;padding-top:14px;border-top:2px solid var(--ink)}
+.q h3{font-size:21px;line-height:1.25}
+.q p{font-size:15px;color:var(--ink-2)}
+.q .tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.context-note{margin-top:28px;font-size:15px;color:var(--ink-2);max-width:66ch;padding:16px 18px;background:var(--surface);border:1px solid var(--rule-soft);border-radius:6px}
+.context-note strong{color:var(--ink);font-weight:600}
+
+/* Matrix */
+.matrix-wrap{overflow-x:auto;margin-top:8px}
+table.matrix{border-collapse:collapse;width:100%;min-width:620px;font-size:14px}
+.matrix th,.matrix td{padding:10px 8px;border-bottom:1px solid var(--rule-soft);text-align:center}
+.matrix thead th{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);vertical-align:bottom;border-bottom:1px solid var(--rule)}
+.matrix th[scope=row]{text-align:left;font-weight:500;padding-left:0}
+.matrix th[scope=row] a{color:var(--ink);text-decoration:none}
+.matrix th[scope=row] a:hover{color:var(--accent);text-decoration:underline}
+.matrix th[scope=row] span{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:400}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.dot.half{background:transparent;border:2px solid var(--accent)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:12px;align-items:center}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+
+/* Projects */
+.project{display:grid;grid-template-columns:170px minmax(0,1fr);gap:32px;padding-block:36px;border-top:1px solid var(--rule-soft)}
+.project:first-of-type{border-top:0;padding-top:4px}
+@media (max-width:760px){.project{grid-template-columns:1fr;gap:14px}}
+.meta{display:flex;flex-direction:column;gap:12px;font-size:13px;color:var(--muted)}
+.meta dl{margin:0;display:flex;flex-direction:column;gap:10px}
+.meta dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+.meta dd{margin:0;color:var(--ink-2);line-height:1.4}
+@media (max-width:760px){.meta dl{flex-direction:row;flex-wrap:wrap;gap:8px 22px}}
+.body{display:flex;flex-direction:column;gap:14px;min-width:0}
+.body h3{font-size:25px;line-height:1.2}
+.body .question{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink-2);line-height:1.45}
+.body p{color:var(--ink-2);max-width:66ch}
+.body p strong{color:var(--ink);font-weight:600}
+.takeaway{border-left:3px solid var(--gap);padding:4px 0 4px 14px;color:var(--ink);max-width:64ch}
+.takeaway b{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gap);display:block;font-weight:500;margin-bottom:2px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-family:var(--mono);font-size:11.5px;color:var(--muted);padding:2px 8px;background:var(--track);border-radius:3px}
+.links{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
+
+/* Figures */
+figure{margin:4px 0;padding:18px 20px 16px;background:var(--surface);border:1px solid var(--rule-soft);border-radius:6px;display:flex;flex-direction:column;gap:12px}
+figcaption{font-size:13px;color:var(--muted);line-height:1.45}
+figcaption b{font-weight:600;color:var(--ink)}
+.bars{display:grid;grid-template-columns:minmax(120px,190px) minmax(0,1fr) 64px;gap:8px 12px;align-items:center;font-size:13.5px}
+@media (max-width:520px){.bars{grid-template-columns:minmax(92px,120px) minmax(0,1fr) 52px;font-size:12.5px}}
+.bars .lab{color:var(--ink-2);line-height:1.3}
+.bars .val{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;text-align:right;color:var(--ink)}
+.track{position:relative;height:14px;background:var(--track);border-radius:2px}
+.fill{position:absolute;left:0;top:0;bottom:0;background:var(--accent);border-radius:2px}
+.fill.gap{background:var(--gap)}
+.fill.dim{background:var(--muted);opacity:.55}
+.refline{position:absolute;top:-4px;bottom:-4px;width:0;border-left:2px dashed var(--gap)}
+.axis{grid-column:2;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.fig-sub{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.fig-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:640px){.fig-split{grid-template-columns:1fr}}
+.stat{display:flex;flex-direction:column;gap:4px}
+.stat .n{font-family:var(--serif);font-size:34px;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.stat .n.gapc{color:var(--gap)}
+.stat .d{font-size:13px;color:var(--muted);line-height:1.4}
+.numstrip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+@media (max-width:640px){.numstrip{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.numstrip .n{font-size:26px}
+
+.subhead{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:40px 0 4px;padding-top:24px;border-top:1px solid var(--rule)}
+
+/* Compact entries */
+.compact{display:grid;grid-template-columns:170px minmax(0,1fr);gap:32px;padding-block:22px;border-top:1px solid var(--rule-soft)}
+@media (max-width:760px){.compact{grid-template-columns:1fr;gap:6px}}
+.compact h3{font-size:20px;margin-bottom:6px}
+.compact p{color:var(--ink-2);font-size:15px;max-width:66ch}
+
+/* Lists */
+.entries{display:flex;flex-direction:column}
+.entry{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 24px;padding-block:16px;border-top:1px solid var(--rule-soft)}
+.entry:first-child{border-top:0}
+.entry h3{font-size:19px;line-height:1.3}
+.entry .sub{color:var(--ink-2);font-size:15px;grid-column:1}
+.entry .when{font-family:var(--mono);font-size:12.5px;color:var(--muted);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+@media (max-width:560px){.entry{grid-template-columns:1fr}.entry .when{text-align:left;grid-row:2}}
+.entry .note{grid-column:1/-1;font-size:14px;color:var(--muted)}
+
+.course-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px}
+@media (max-width:760px){.course-grid{grid-template-columns:1fr;gap:24px}}
+.courses{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column}
+.courses li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding-block:7px;border-bottom:1px solid var(--rule-soft);font-size:14.5px}
+.courses code{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:2px}
+.courses .inst{font-size:13px;color:var(--muted);display:block}
+
+.skills{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px 24px;font-size:15px}
+@media (max-width:560px){.skills{grid-template-columns:1fr;gap:2px}.skills dd{margin-bottom:12px}}
+.skills dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.skills dd{margin:0;color:var(--ink-2)}
+
+footer{padding-top:32px;border-top:1px solid var(--rule);font-size:13px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="wrap">
+  <aside class="rail">
+    <div>
+      <div class="name">Yeoeun Choi</div>
+      <p class="role">Graduate student in data science at Harvard University and USC Viterbi. Applying to PhD and thesis-track master's programs for Fall 2027.</p>
+    </div>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#questions">Research questions</a>
+      <a href="#projects">Projects</a>
+      <a href="#teaching">Teaching and service</a>
+      <a href="#education">Education</a>
+      <a href="#coursework">Coursework</a>
+      <a href="#skills">Methods and skills</a>
+    </nav>
+    <div class="contact">
+      <div class="label">Contact</div>
+      <div class="email-row"><span class="email" id="email">ychoi0908@gmail.com</span><button class="copy" id="copy-email" type="button">Copy</button></div>
+      <a href="https://www.linkedin.com/in/yeoeunchoi/" target="_blank" rel="noopener">linkedin.com/in/yeoeunchoi</a>
+      <div style="color:var(--muted)">Boston, MA</div>
+    </div>
+  </aside>
+
+  <main>
+    <section id="about" class="hero">
+      <div class="eyebrow">Human-centered AI · Information Science · HCI</div>
+      <h1>I study when people should trust AI systems, and how to design them so that trust <em>matches what the system can actually do.</em></h1>
+      <div class="bio">
+        <p>My projects keep landing on the same problem. A question-answering system answered all 258 questions it had no basis to answer. A sentiment model reproduced its machine-made training labels faithfully, yet agreed with my own careful reading of the same tweets less than half the time. An insurance model was 15 points less accurate for young, low-income women than for its best-served group. In each case the system looked competent, and the gap only appeared when I checked it against people.</p>
+        <p>I come to this from business analytics, operations, and applied machine learning, with degrees from Carnegie Mellon, the University of Illinois Chicago, and Sacramento State. I want to spend a PhD building and testing ways to make that gap visible to the people who rely on these systems, with a focus on education, where a misplaced belief in an AI tutor or grader can shape what a learner does next.</p>
+      </div>
+      <div class="status">
+        <span class="chip on">Seeking PhD positions · Fall 2027</span>
+        <span class="chip">Thesis-track MS also considered</span>
+        <span class="chip">Native Korean · Fluent English</span>
+      </div>
+    </section>
+
+    <section id="questions">
+      <div class="sec-head">
+        <div class="eyebrow">Research interests</div>
+        <h2>Three questions I want to work on</h2>
+      </div>
+      <div class="questions">
+        <div class="q">
+          <span class="tag">Trust calibration</span>
+          <h3>How do people decide how much to rely on an AI system?</h3>
+          <p>What signals lead users to over-trust a fluent answer or dismiss a correct one, and which interface cues (confidence, abstention, sources) move their reliance closer to the system's real accuracy.</p>
+        </div>
+        <div class="q">
+          <span class="tag">Explanation</span>
+          <h3>What makes an explanation useful to the person receiving it?</h3>
+          <p>Moving from explanations that describe a model (feature attributions) to ones a person can act on or contest (counterfactuals written in plain language), and testing whether they actually change decisions.</p>
+        </div>
+        <div class="q">
+          <span class="tag">Fairness in use</span>
+          <h3>Who carries the cost when an AI system is wrong?</h3>
+          <p>Auditing systems at the level of intersecting groups rather than averages, and studying how proxy variables and biased labels (cost standing in for need, a tool's label standing in for a person's) pass harm through a model unnoticed.</p>
+        </div>
+      </div>
+      <p class="context-note"><strong>Why education.</strong> Education is the setting I care most about. I have tutored business statistics at Sacramento State and I volunteer teaching Korean elders who did not get to go to school as children. Students and first-time learners are exactly the users least equipped to judge whether an AI tutor is right, and the ones with the most to lose when it is not.</p>
+    </section>
+
+    <section id="projects">
+      <div class="sec-head">
+        <div class="eyebrow">Selected projects</div>
+        <h2>Where the questions came from</h2>
+        <p class="lede">Course, capstone, and client projects from 2023 to 2026. None are published papers yet; each is written up in a full technical report. The table maps each project to the research threads above.</p>
+      </div>
+
+      <div class="matrix-wrap">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th scope="col" style="text-align:left;padding-left:0">Project</th>
+              <th scope="col">Trust calibration</th>
+              <th scope="col">Explanation</th>
+              <th scope="col">Fairness and harm</th>
+              <th scope="col">Human in the loop</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row"><a href="#p-rag">RAG system that cannot refuse</a><span>Harvard CSCI E-222 · 2026</span></th><td><span class="dot" aria-label="primary"></span></td><td></td><td></td><td><span class="dot half" aria-label="secondary"></span></td></tr>
+            <tr><th scope="row"><a href="#p-labels">Checking machine labels by hand</a><span>Harvard CSCI S-89 · 2026</span></th><td><span class="dot half" aria-label="secondary"></span></td><td></td><td></td><td><span class="dot" aria-label="primary"></span></td></tr>
+            <tr><th scope="row"><a href="#p-insurance">Responsible AI for insurance pricing</a><span>CMU 46-898 · 2025</span></th><td><span class="dot half" aria-label="secondary"></span></td><td><span class="dot" aria-label="primary"></span></td><td><span class="dot" aria-label="primary"></span></td><td></td></tr>
+            <tr><th scope="row"><a href="#p-capstone">Decision support for early intervention</a><span>CMU MSBA capstone · 2025</span></th><td><span class="dot half" aria-label="secondary"></span></td><td></td><td></td><td><span class="dot" aria-label="primary"></span></td></tr>
+            <tr><th scope="row"><a href="#p-health">When cost is mistaken for need</a><span>Harvard CSCI E-184 · 2026</span></th><td></td><td><span class="dot half" aria-label="secondary"></span></td><td><span class="dot" aria-label="primary"></span></td><td><span class="dot half" aria-label="secondary"></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="legend"><span><span class="dot"></span> Central to the project</span><span><span class="dot half"></span> Part of the analysis</span></div>
+
+      <div style="margin-top:36px"></div>
+
+      <!-- RAG -->
+      <article class="project" id="p-rag">
+        <div class="meta"><dl>
+          <div><dt>When</dt><dd>Spring 2026</dd></div>
+          <div><dt>Context</dt><dd>Harvard CSCI E-222, Foundations of Large Language Models</dd></div>
+          <div><dt>Role</dt><dd>Individual project</dd></div>
+        </dl></div>
+        <div class="body">
+          <h3>A question-answering system that never says "I don't know"</h3>
+          <p class="question">Does retrieval make a language model's answers more trustworthy, and can it tell when it has nothing to go on?</p>
+          <p>I built a retrieval-augmented generation pipeline end to end: a DPR bi-encoder retriever, a FAISS index over about 29,000 chunks of Wikipedia-derived passages, and Flan-T5 as the generator. I evaluated it on 500 held-out SQuAD v2 questions, 258 of which are deliberately unanswerable, using exact match, token F1, ROUGE-L, and Recall@K.</p>
+          <figure>
+            <div class="fig-sub">Exact match on 500 SQuAD v2 questions</div>
+            <div class="bars" role="img" aria-label="Exact match: closed-book 0.004, top 1 passage 0.034, top 5 passages 0.062, top 10 passages 0.062">
+              <span class="lab">No retrieval</span><div class="track"><div class="fill dim" style="width:5%"></div></div><span class="val">0.004</span>
+              <span class="lab">Top 1 passage</span><div class="track"><div class="fill" style="width:42.5%"></div></div><span class="val">0.034</span>
+              <span class="lab">Top 5 passages</span><div class="track"><div class="fill" style="width:77.5%"></div></div><span class="val">0.062</span>
+              <span class="lab">Top 10 passages</span><div class="track"><div class="fill" style="width:77.5%"></div></div><span class="val">0.062</span>
+              <div class="axis"><span>0</span><span>0.02</span><span>0.04</span><span>0.06</span><span>0.08</span></div>
+            </div>
+            <div class="fig-split" style="margin-top:6px">
+              <div class="stat"><span class="n gapc">0 of 258</span><span class="d">unanswerable questions the system declined to answer</span></div>
+              <div class="stat"><span class="n">0.116</span><span class="d">Recall@1: the correct passage was retrieved first only 12% of the time</span></div>
+            </div>
+            <figcaption><b>Retrieval helped about 15-fold</b> over the closed-book model, but the system answered every question it was given, including every one it had no evidence for.</figcaption>
+          </figure>
+          <p class="takeaway"><b>What this taught me</b>A system can improve on every standard metric while still giving users no signal about when to doubt it. Grounding is not the same as knowing when to abstain, and I want to study how abstention and confidence cues change what users believe.</p>
+          <p>Next steps I proposed: fine-tune the retriever on in-domain queries, add a learned "answerable" classifier on retrieval scores, and give the prompt and decoder an explicit way to refuse.</p>
+          <div class="tags"><span>RAG</span><span>DPR</span><span>FAISS</span><span>Flan-T5</span><span>HuggingFace</span><span>SQuAD v2</span></div>
+        </div>
+      </article>
+
+      <!-- Labels -->
+      <article class="project" id="p-labels">
+        <div class="meta"><dl>
+          <div><dt>When</dt><dd>Summer 2026</dd></div>
+          <div><dt>Context</dt><dd>Harvard CSCI S-89, Deep Learning</dd></div>
+          <div><dt>Role</dt><dd>Individual project</dd></div>
+        </dl></div>
+        <div class="body">
+          <h3>Checking a machine's labels against a human reader</h3>
+          <p class="question">When a model is trained on labels produced by another tool, whose judgment does it actually learn?</p>
+          <p>I trained a bidirectional LSTM sentiment classifier on 14,427 human-labeled airline tweets, then tested it zero-shot on 201,162 tweets about ChatGPT and fine-tuned it on 25,000 of them. A TF-IDF logistic regression baseline on the same splits showed the transfer gap came from the data, not the architecture. The ChatGPT labels came from an unnamed NLP tool, so I added a step most pipelines skip: I hand-labeled 150 random tweets myself, blind to the dataset's label.</p>
+          <figure>
+            <div class="fig-split">
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div class="fig-sub">Accuracy on 8,000 ChatGPT tweets</div>
+                <div class="bars" role="img" aria-label="Zero-shot accuracy 35.3 percent, below the 47.7 percent majority-class baseline; fine-tuned accuracy 73.1 percent" style="grid-template-columns:minmax(80px,96px) minmax(0,1fr) 48px">
+                  <span class="lab">Zero-shot</span><div class="track"><div class="fill gap" style="width:35.3%"></div><div class="refline" style="left:47.7%"></div></div><span class="val">35.3%</span>
+                  <span class="lab">Fine-tuned</span><div class="track"><div class="fill" style="width:73.1%"></div><div class="refline" style="left:47.7%"></div></div><span class="val">73.1%</span>
+                  <div class="axis"><span>0</span><span>50%</span><span>100%</span></div>
+                </div>
+                <figcaption>Dashed line: always guessing "negative" (47.7%). Zero-shot transfer did worse than that.</figcaption>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div class="fig-sub">Agreement with my own labels (n = 150)</div>
+                <div class="bars" role="img" aria-label="Dataset labels agreed with my labels 52.7 percent of the time; the fine-tuned model agreed 48.0 percent" style="grid-template-columns:minmax(80px,96px) minmax(0,1fr) 48px">
+                  <span class="lab">Dataset labels</span><div class="track"><div class="fill dim" style="width:52.7%"></div></div><span class="val">52.7%</span>
+                  <span class="lab">Fine-tuned model</span><div class="track"><div class="fill gap" style="width:48%"></div></div><span class="val">48.0%</span>
+                  <div class="axis"><span>0</span><span>50%</span><span>100%</span></div>
+                </div>
+                <figcaption>I never judged a tweet "neutral." The tool labeled 31 of the 150 that way.</figcaption>
+              </div>
+            </div>
+          </figure>
+          <p class="takeaway"><b>What this taught me</b>Fine-tuning looked like a success (73% accuracy), but what the model learned was the labeling tool's judgment, and that only partly matched a human reading. A small, cheap human check surfaced a problem the metrics could not. I also rewrote my own first framing ("measuring public trust in AI") because the data could not support that claim.</p>
+          <div class="tags"><span>Keras</span><span>BiLSTM</span><span>Domain transfer</span><span>Label validation</span><span>scikit-learn</span></div>
+          <div class="links"><a href="https://youtu.be/tuvoWChN97I" target="_blank" rel="noopener">Watch the project presentation (YouTube)</a></div>
+        </div>
+      </article>
+
+      <!-- Insurance -->
+      <article class="project" id="p-insurance">
+        <div class="meta"><dl>
+          <div><dt>When</dt><dd>Spring 2025</dd></div>
+          <div><dt>Context</dt><dd>Carnegie Mellon 46-898, Ethics and Artificial Intelligence (Dr. Derek Leben)</dd></div>
+          <div><dt>Role</dt><dd>Team project, four-part report series</dd></div>
+        </dl></div>
+        <div class="body">
+          <h3>Responsible AI for personalized auto insurance</h3>
+          <p class="question">What would it take for customers to have good reason to trust an AI that prices their insurance?</p>
+          <p>Over a semester we took random forest models that predict whether a customer files a claim and how much, and worked through four questions in sequence: data consent and sensitivity, explainability, discrimination, and the safety of an LLM customer assistant. We used <strong>SHAP</strong> for feature attribution and Microsoft's <strong>DiCE</strong> for counterfactuals, translated into plain-language statements a customer could act on ("if your car were three years newer, your predicted chance of a claim would drop"). We audited outcomes with <strong>Fairlearn</strong> across gender, income, and age, including their intersections, and mitigated with constrained optimization. Finally we red-teamed a LLaMA 3.1 8B insurance assistant, built with a system prompt and RAG documents, against the LlamaGuard hazard categories and ALERT fairness prompts.</p>
+          <figure>
+            <div class="fig-split">
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div class="fig-sub">Claim model accuracy by group</div>
+                <div class="bars" role="img" aria-label="Best-served group 84 percent accuracy; low-income women under 30, 69 percent" style="grid-template-columns:minmax(80px,110px) minmax(0,1fr) 40px">
+                  <span class="lab">Best-served group</span><div class="track"><div class="fill" style="width:84%"></div></div><span class="val">84%</span>
+                  <span class="lab">Low-income women under 30</span><div class="track"><div class="fill gap" style="width:69%"></div></div><span class="val">69%</span>
+                  <div class="axis"><span>0</span><span>50%</span><span>100%</span></div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div class="fig-sub">Demographic parity gap</div>
+                <div class="bars" role="img" aria-label="Demographic parity gap 0.11 before mitigation, 0.03 after" style="grid-template-columns:minmax(80px,110px) minmax(0,1fr) 40px">
+                  <span class="lab">Before mitigation</span><div class="track"><div class="fill gap" style="width:73.3%"></div></div><span class="val">0.11</span>
+                  <span class="lab">After mitigation</span><div class="track"><div class="fill" style="width:20%"></div></div><span class="val">0.03</span>
+                  <div class="axis"><span>0</span><span>0.15</span></div>
+                </div>
+              </div>
+            </div>
+            <figcaption><b>The gap was invisible in the average</b> and only showed up when gender, income, and age were crossed. Mitigation kept over 90% of model performance and cut the income-based payout error gap from $780 to $280.</figcaption>
+          </figure>
+          <p class="takeaway"><b>What this taught me</b>Safety and trust pull in two directions. The LLM assistant correctly refused discriminatory and fraudulent requests, but it also blocked ordinary insurance questions as unsafe, and that kind of over-blocking erodes trust and access just as surely. Explanations also need a design choice about who they are for: enough to guide a customer, not enough to game the model.</p>
+          <div class="tags"><span>Fairlearn</span><span>SHAP</span><span>DiCE</span><span>LlamaGuard</span><span>ALERT</span><span>LLaMA 3.1</span><span>Random forests</span></div>
+        </div>
+      </article>
+
+      <!-- Capstone -->
+      <article class="project" id="p-capstone">
+        <div class="meta"><dl>
+          <div><dt>When</dt><dd>Spring 2025</dd></div>
+          <div><dt>Context</dt><dd>Carnegie Mellon Tepper MSBA capstone, for an early intervention provider serving children under three</dd></div>
+          <div><dt>Role</dt><dd>Data analysis and dashboards, 4-person team (advisor Dr. Beth Walter)</dd></div>
+        </dl></div>
+        <div class="body">
+          <h3>Decision support for an early intervention provider</h3>
+          <p class="question">How much of a sensitive, people-facing workflow should be automated, and who should check the automation?</p>
+          <p>The provider matched therapists to referred children using years of disconnected spreadsheets, with therapist availability recorded as free text. With a teammate I cleaned and unified the data (names, zip codes, dates, free-text entries), automated preprocessing so it held up as new data arrived, and built dashboards for referral volume by discipline, caseload growth, weekly therapist availability, and zip-code coverage. We also piloted an offline GPT pipeline that turned free-text availability into structured schedules.</p>
+          <figure>
+            <div class="numstrip">
+              <div class="stat"><span class="n">14</span><span class="d">years of operations data</span></div>
+              <div class="stat"><span class="n">5</span><span class="d">disconnected files unified</span></div>
+              <div class="stat"><span class="n">30k+</span><span class="d">referral attempts</span></div>
+              <div class="stat"><span class="n">66k+</span><span class="d">visit records</span></div>
+              <div class="stat"><span class="n">266</span><span class="d">therapists</span></div>
+            </div>
+          </figure>
+          <p class="takeaway"><b>What this taught me</b>The LLM parser failed in predictable places: recurring schedules and therapists who work in several locations. Rather than hide that, we documented the failure modes and designed a manual-verification fallback. When staff feedback showed they valued clarity over automation, we shifted the deliverable toward dashboards they could read and filter themselves, and limited automation to non-sensitive fields for HIPAA compliance.</p>
+          <div class="tags"><span>Excel dashboards</span><span>Power Automate</span><span>OpenAI API</span><span>Data integration</span><span>HIPAA</span><span>Stakeholder research</span></div>
+        </div>
+      </article>
+
+      <!-- Health -->
+      <article class="project" id="p-health">
+        <div class="meta"><dl>
+          <div><dt>When</dt><dd>Spring 2026</dd></div>
+          <div><dt>Context</dt><dd>Harvard CSCI E-184, Data Science and AI (Dr. Bruce Huang)</dd></div>
+          <div><dt>Role</dt><dd>Team of six, case analysis and presentation</dd></div>
+        </dl></div>
+        <div class="body">
+          <h3>When cost is mistaken for need</h3>
+          <p class="question">How can a health system ethically use an AI risk score when the data behind it reflects unequal access to care?</p>
+          <p>We analyzed the population-health algorithm studied by Obermeyer et al. (Science, 2019), which predicted future healthcare cost as a stand-in for illness and excluded race as an input. We compared it with UnitedHealth's nH Predict case (2023 to 2025), where a tool described as advisory allegedly became determinative in practice, and examined bias, transparency, and accountability across vendors, hospitals, clinicians, and patients.</p>
+          <figure>
+            <div class="fig-split">
+              <div class="stat"><span class="n gapc">26.3%</span><span class="d">more chronic conditions among Black patients than White patients given the same risk score</span></div>
+              <div class="stat"><span class="n">84%</span><span class="d">reduction in measured bias when the label combined health prediction with cost</span></div>
+            </div>
+            <figcaption>Figures from Obermeyer et al. (2019), the case our analysis was built on.</figcaption>
+          </figure>
+          <p class="takeaway"><b>What this taught me</b>A model can be accurate at the task it was given and still wrong about the thing people think it measures. Clinicians trusted a "risk score" without knowing it predicted spending. Auditing the target label before deployment matters as much as auditing accuracy after.</p>
+          <div class="tags"><span>Algorithmic bias</span><span>Label choice</span><span>Healthcare AI</span><span>Accountability</span></div>
+        </div>
+      </article>
+
+      <div class="subhead">Earlier and supporting work</div>
+
+      <article class="compact" id="p-fakenews">
+        <div class="meta"><dl><div><dt>Fall 2025</dt><dd>Harvard CSCI E-89B, NLP · Individual</dd></div></dl></div>
+        <div>
+          <h3>Fake news detection across five model families</h3>
+          <p>Compared logistic regression, a dense network, LSTM, BiLSTM, and DistilBERT on 44,898 news articles. The BiLSTM reached 98.86% accuracy, but TF-IDF logistic regression was within half a point (98.43%), and the strongest signals were source markers like the "Reuters" dateline and sensational wording. I read that as a caution: near-perfect accuracy here reflects how outlets write, which is not the same as detecting whether a claim is true.</p>
+        </div>
+      </article>
+
+      <article class="compact" id="p-esg">
+        <div class="meta"><dl><div><dt>Fall 2023</dt><dd>UIC, sponsored by the Center for Supply Chain and Logistics · Team of three</dd></div></dl></div>
+        <div>
+          <h3>Sustainability drivers of operational performance</h3>
+          <p>Built a standardized dataset linking environmental measures (emissions, water, waste, energy) from sustainability reports and S&amp;P Global with financial performance, reconciling inconsistent units across companies. Used regression, correlation, and clustering with intensity-normalized metrics, and found non-linear relationships that we presented in Tableau dashboards for the sponsor.</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="teaching">
+      <div class="sec-head">
+        <div class="eyebrow">Teaching and service</div>
+        <h2>Teaching</h2>
+      </div>
+      <div class="entries">
+        <div class="entry">
+          <h3>Tutor, DS 101: Data Analysis for Managers</h3>
+          <span class="when">Sacramento State</span>
+          <p class="sub">Paid tutor for the introductory business statistics and data analysis course, working one-on-one with students on the course material.</p>
+        </div>
+        <div class="entry">
+          <h3>Volunteer teacher for Korean elders</h3>
+          <span class="when">Ongoing</span>
+          <p class="sub">Teaching older Korean adults who were not able to get an education as children. This work is the reason I care about AI in education: these learners need tools that are patient and honest about their limits.</p>
+        </div>
+        <div class="entry">
+          <h3>Peer mentoring and team leadership</h3>
+          <span class="when"></span>
+          <p class="sub">Mentored fellow students through coursework and led workstreams on multi-person analytics and consulting projects.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="sec-head">
+        <div class="eyebrow">Education</div>
+        <h2>Degrees</h2>
+      </div>
+      <div class="entries">
+        <div class="entry"><h3>Harvard University</h3><span class="when">Expected May 2027</span><p class="sub">Master of Liberal Arts (ALM), Data Science. Graduate AI Certificate completed 2026.</p></div>
+        <div class="entry"><h3>University of Southern California, Viterbi School of Engineering</h3><span class="when">In progress</span><p class="sub">MS, Applied Data Science</p></div>
+        <div class="entry"><h3>Carnegie Mellon University, Tepper School of Business</h3><span class="when">May 2025</span><p class="sub">MS, Business Analytics · GPA 3.8</p></div>
+        <div class="entry"><h3>University of Illinois Chicago</h3><span class="when">Dec 2023</span><p class="sub">MS, Supply Chain and Operations Management · GPA 4.0</p></div>
+        <div class="entry"><h3>California State University, Sacramento</h3><span class="when">May 2022</span><p class="sub">BS, Business Administration, Business Analytics concentration · GPA 3.6 · Summa Cum Laude, Dean's List 2020 to 2022</p></div>
+        <div class="entry"><h3>Sierra College</h3><span class="when">Aug 2020</span><p class="sub">AS, Business Administration · President's Honor Roll 2019 to 2020</p></div>
+      </div>
+      <p class="context-note" style="margin-top:24px"><strong>Why two concurrent programs.</strong> I enrolled at Harvard alongside USC because Harvard's catalog covers deep learning, language models, and AI ethics topics that USC's program does not.</p>
+    </section>
+
+    <section id="coursework">
+      <div class="sec-head">
+        <div class="eyebrow">Relevant graduate coursework</div>
+        <h2>Coursework</h2>
+      </div>
+      <div class="course-grid">
+        <div>
+          <div class="fig-sub">Machine learning and AI</div>
+          <ul class="courses">
+            <li><code>CSCI S-89</code><span>Deep Learning<span class="inst">Harvard · Summer 2026</span></span></li>
+            <li><code>CSCI E-222</code><span>Large Language Models<span class="inst">Harvard · Spring 2026</span></span></li>
+            <li><code>CSCI E-89B</code><span>Introduction to Natural Language Processing<span class="inst">Harvard · Fall 2025</span></span></li>
+            <li><code>CSCI E-80</code><span>Artificial Intelligence with Python<span class="inst">Harvard · Fall 2025</span></span></li>
+            <li><code>DGMD E-14</code><span>Wearable Devices and Computer Vision<span class="inst">Harvard · Fall 2025</span></span></li>
+            <li><code>46-886</code><span>Machine Learning Fundamentals<span class="inst">Carnegie Mellon · 2024</span></span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fig-sub">Statistics, data science, and AI and society</div>
+          <ul class="courses">
+            <li><code>MATH S-156</code><span>Mathematical Statistics<span class="inst">Harvard · Summer 2025</span></span></li>
+            <li><code>CSCI E-106</code><span>Statistical Data Modeling<span class="inst">Harvard · Fall 2025</span></span></li>
+            <li><code>CSCI S-108</code><span>Data Mining, Discovery, and Exploration<span class="inst">Harvard · Summer 2026</span></span></li>
+            <li><code>CSCI S-101</code><span>Foundations of Data Science and Engineering<span class="inst">Harvard · Summer 2025</span></span></li>
+            <li><code>CSCI E-184</code><span>Data Science and AI<span class="inst">Harvard · Spring 2026</span></span></li>
+            <li><code>CSCI E-11</code><span>AI, IoT, and Cybersecurity<span class="inst">Harvard · Spring 2026</span></span></li>
+            <li><code>CSCI E-138</code><span>The Future of Humanity<span class="inst">Harvard · Spring 2026</span></span></li>
+            <li><code>46-898</code><span>Ethics and Artificial Intelligence<span class="inst">Carnegie Mellon · 2025</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="sec-head">
+        <div class="eyebrow">Methods and skills</div>
+        <h2>What I work with</h2>
+      </div>
+      <dl class="skills">
+        <dt>Responsible AI</dt><dd>Fairness auditing and mitigation (Fairlearn), feature attribution (SHAP), counterfactual explanations (DiCE), LLM red-teaming (LlamaGuard, ALERT), human validation of labels and model output</dd>
+        <dt>Machine learning</dt><dd>Retrieval-augmented generation, transformers (HuggingFace), LSTMs, classical ML, predictive modeling, NLP, LLM prompt engineering</dd>
+        <dt>Statistics</dt><dd>Regression, hypothesis testing, A/B testing, clustering, mathematical statistics</dd>
+        <dt>Languages and tools</dt><dd>Python, SQL, R, Java, MATLAB · TensorFlow and Keras, HuggingFace Transformers, scikit-learn, FAISS · MySQL, MongoDB, Apache Spark, AWS · Tableau, Power BI, Excel</dd>
+        <dt>Certifications</dt><dd>Lean Six Sigma Green Belt · ISACA Cybersecurity Fundamentals · Advanced Google Analytics</dd>
+        <dt>Languages</dt><dd>Korean (native), English (fluent)</dd>
+      </dl>
+    </section>
+
+    <footer>
+      <span>Yeoeun Choi · Research portfolio</span>
+      <span>Updated September 2026</span>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function(){
+  var btn=document.getElementById('copy-email');
+  var el=document.getElementById('email');
+  if(!btn||!el) return;
+  btn.addEventListener('click',function(){
+    var text=el.textContent.trim();
+    function selectIt(){
+      try{var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);}catch(e){}
+      btn.textContent='Selected';
+    }
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy'},1800);},selectIt);
+      } else selectIt();
+    }catch(e){selectIt();}
+  });
+})();
+</script>
+</body>
+</html>
