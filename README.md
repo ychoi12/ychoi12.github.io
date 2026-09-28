@@ -2,4 +2,6 @@
 
 Research portfolio for PhD and master's applications in human-centered AI.
 
-Live site: [Jump to Coursework](file:///Users/yeoeunchoi/Downloads/index.html#coursework)
+Live site: https://ychoi12.github.io
+
+Coursework: https://ychoi12.github.io/#coursework
