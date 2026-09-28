@@ -4,4 +4,8 @@ Research portfolio for PhD and master's applications in human-centered AI.
 
 Live site: https://ychoi12.github.io
 
+Current work: https://ychoi12.github.io/#research
+
+- *Calibrating learners' trust in generative AI: A narrative review of design interventions for appropriate reliance in education* (manuscript in preparation, 2026)
+
 Coursework: https://ychoi12.github.io/#coursework
