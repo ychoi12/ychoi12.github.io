@@ -1,5 +1,5 @@
-# Yeoeun Choi — Portfolio
+# Yeoeun Choi
 
-Research portfolio for PhD and master's applications in human-centered computing and AI ethics.
+Research portfolio for PhD and master's applications in human-centered AI.
 
-- Live site: https://ychoi12.github.io
+Live site: https://ychoi12.github.io
