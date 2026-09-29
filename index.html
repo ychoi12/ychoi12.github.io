@@ -278,6 +278,23 @@ footer{padding-top:32px;border-top:1px solid var(--rule);font-size:13px;color:va
           <div class="tags"><span>Trust calibration</span><span>Appropriate reliance</span><span>Generative AI</span><span>Education</span><span>Equity</span></div>
         </div>
       </article>
+
+      <article class="project" id="r-preprint">
+        <div class="meta"><dl>
+          <div><dt>Status</dt><dd>Preprint in preparation</dd></div>
+          <div><dt>Type</dt><dd>Empirical paper</dd></div>
+          <div><dt>Role</dt><dd>Sole author</dd></div>
+          <div><dt>Year</dt><dd>2026</dd></div>
+        </dl></div>
+        <div class="body">
+          <h3>A tutor that never says "I don't know": Abstention failure in a retrieval-augmented question-answering system and what it means for learners' trust</h3>
+          <p class="question">If a tutor answers every question the same way, whether or not it has a basis for the answer, what cue is left for a learner to calibrate trust?</p>
+          <p>This paper builds on my <a href="#p-rag">retrieval-augmented question-answering project</a>. Retrieval raised exact match from 0.004 to 0.062, but the system answered all 258 unanswerable questions in a 500-question SQuAD 2.0 sample, and its answers looked the same whether or not retrieval had found the source passage. I connect this to research on how people rely on language models, show why standard accuracy metrics hide the failure, and propose a study testing whether a tutor that can abstain helps students rely on it appropriately.</p>
+          <p class="takeaway"><b>What I am arguing</b>Educational AI should be evaluated on whether it declines to answer when it has no basis, not only on how often it is right. An answer to every question removes the signal a learner needs to know when to doubt it.</p>
+          <p><strong>Next question.</strong> Does a tutor that says "I could not find this in your course materials" improve students' reliance on its correct answers and their skepticism of its wrong ones, and does it affect what they learn?</p>
+          <div class="tags"><span>Abstention</span><span>Retrieval-augmented generation</span><span>Trust calibration</span><span>AI tutors</span><span>Education</span></div>
+        </div>
+      </article>
     </section>
 
     <section id="projects">
@@ -338,7 +355,7 @@ footer{padding-top:32px;border-top:1px solid var(--rule);font-size:13px;color:va
             <figcaption><b>Retrieval helped about 15-fold</b> over the closed-book model, but the system answered every question it was given, including every one it had no evidence for.</figcaption>
           </figure>
           <p class="takeaway"><b>What this taught me</b>A system can improve on every standard metric while still giving users no signal about when to doubt it. Grounding is not the same as knowing when to abstain, and I want to study how abstention and confidence cues change what users believe.</p>
-          <p>Next steps I proposed: fine-tune the retriever on in-domain queries, add a learned "answerable" classifier on retrieval scores, and give the prompt and decoder an explicit way to refuse.</p>
+          <p>Next steps I proposed: fine-tune the retriever on in-domain queries, add a learned "answerable" classifier on retrieval scores, and give the prompt and decoder an explicit way to refuse. I am now developing this project into a <a href="#r-preprint">preprint on what abstention failure means for learners</a>.</p>
           <div class="tags"><span>RAG</span><span>DPR</span><span>FAISS</span><span>Flan-T5</span><span>HuggingFace</span><span>SQuAD v2</span></div>
         </div>
       </article>
