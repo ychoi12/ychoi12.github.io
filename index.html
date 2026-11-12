@@ -273,7 +273,7 @@ footer{padding-top:32px;border-top:1px solid var(--rule);font-size:13px;color:va
         <div class="body">
           <h3>Calibrating learners' trust in generative AI: A narrative review of design interventions for appropriate reliance in education</h3>
           <p class="question">Which designs help students rely on AI when it is right, question it when it is wrong, and still do the work that is the point of the lesson?</p>
-          <p>Students' reliance on generative AI is often poorly calibrated. In one randomized study, high school students accepted incorrect ChatGPT advice in about half of trials, and among 432 undergraduates, higher trust went with worse ability to tell correct AI suggestions from incorrect ones. I review four families of interventions: communicating the AI's reliability, prompting learners to think before accepting an answer, changing the cost of checking, and building AI literacy. For each, I ask what it actually changes: trust, the appropriateness of reliance, or learning itself.</p>
+          <p>Students' reliance on generative AI is often poorly calibrated. In a field experiment with nearly a thousand high school students, unrestricted GPT-4 access during practice left students doing worse than controls once access was removed, and among 432 undergraduates, higher trust went with worse ability to tell correct AI suggestions from incorrect ones. I review four families of interventions: communicating the AI's reliability, prompting learners to think before accepting an answer, changing the cost of checking, and building AI literacy. For each, I ask what it actually changes: trust, the appropriateness of reliance, or learning itself.</p>
           <p class="takeaway"><b>What I am arguing</b>For a learner, appropriate reliance has two reference points: whether the AI is right, and whether this part of the task is the thing the student is supposed to be learning. Most interventions address only the first, and the ones that preserve learning tend to help the students who were already best equipped.</p>
           <p><a href="papers/Choi_2026_Calibrating_Learners_Trust_in_GenAI_review.pdf">Read the manuscript (PDF)</a>. Work in progress, not peer reviewed.</p>
           <p><strong>Next question.</strong> Do trust-calibration interventions help students with low and high AI literacy equally? Almost no study checks, and that is where I want to start.</p>
@@ -283,7 +283,7 @@ footer{padding-top:32px;border-top:1px solid var(--rule);font-size:13px;color:va
 
       <article class="project" id="r-preprint">
         <div class="meta"><dl>
-          <div><dt>Status</dt><dd>Preprint in preparation</dd></div>
+          <div><dt>Status</dt><dd>Preprint, work in progress</dd></div>
           <div><dt>Type</dt><dd>Empirical paper</dd></div>
           <div><dt>Role</dt><dd>Sole author</dd></div>
           <div><dt>Year</dt><dd>2026</dd></div>
@@ -311,7 +311,7 @@ footer{padding-top:32px;border-top:1px solid var(--rule);font-size:13px;color:va
           <p class="question">If a tutor should sometimes say "I don't know," can naming the reasons it should decline show what a single confidence score hides?</p>
           <p>This study follows up my <a href="#r-preprint">abstention preprint</a>. Using model sketching, a method for composing machine learning models from concepts people can read, I will author concepts such as "the retrieved passage does not mention the question's main entity," combine them into small sketch models, and compare them with a retrieval-score threshold on the same 500 SQuAD 2.0 questions and on a fresh held-out sample. A design journal records how sketching changes the way I frame the problem.</p>
           <p class="takeaway"><b>What I am testing</b>Whether the reasons a tutor should abstain can be designed as human-readable concepts. Those reasons are also what an honest "I don't know" could say out loud to a learner.</p>
-          <p><a href="papers/Choi_2026_Sketching_Abstention_protocol.pdf">Read the study protocol (PDF)</a>. Protocol only; no results yet.</p>
+          <p><a href="papers/Choi_2026_Sketching_Abstention_protocol.pdf">Read the study protocol (PDF)</a>. Version 2, November 12, 2026 (first posted October 8, 2026; schedule moved, method unchanged). Protocol only; no results yet.</p>
           <div class="tags"><span>Model sketching</span><span>Abstention</span><span>Human-centered ML</span><span>AI tutors</span><span>Trust calibration</span></div>
         </div>
       </article>
@@ -328,14 +328,14 @@ footer{padding-top:32px;border-top:1px solid var(--rule);font-size:13px;color:va
           <p class="question">How can an AI tutor tell a young learner that it is unsure in a way that prompts checking rather than blind acceptance or blanket distrust?</p>
           <p>If a tutor should sometimes decline to answer, as my <a href="#r-preprint">abstention preprint</a> argues, it also needs a way to say so that a child can understand. I will build a scripted, clickable prototype of one short science lesson in five variants that differ only in the uncertainty cue: no cue, a plain-language hedge, a visual confidence meter, a guide character who shows it is thinking, and an explicit "I don't know" with a hand-off to a teacher. The variants will be evaluated without children, through a heuristic review and walkthroughs by three to five adult experts.</p>
           <p class="takeaway"><b>What I am testing</b>Which forms of uncertainty experts judge most likely to be understood by children and to prompt a useful next step, and what risks they see, before any study with children under ethics review.</p>
-          <p><a href="papers/Choi_2026_Uncertainty_Cues_Young_Learners_protocol.pdf">Read the study protocol (PDF)</a>. Protocol only; no results yet.</p>
+          <p><a href="papers/Choi_2026_Uncertainty_Cues_Young_Learners_protocol.pdf">Read the study protocol (PDF)</a>. Version 2, November 12, 2026 (first posted October 8, 2026; schedule moved, ethics step revised). Protocol only; no results yet.</p>
           <div class="tags"><span>Uncertainty communication</span><span>Children</span><span>AI tutors</span><span>Prototyping</span><span>Heuristic evaluation</span></div>
         </div>
       </article>
 
       <article class="project" id="r-case">
         <div class="meta"><dl>
-          <div><dt>Status</dt><dd>Study in progress (protocol)</dd></div>
+          <div><dt>Status</dt><dd>Analysis drafted; awaiting partner approval</dd></div>
           <div><dt>Type</dt><dd>Design case study</dd></div>
           <div><dt>Role</dt><dd>Sole author</dd></div>
           <div><dt>Year</dt><dd>2026</dd></div>
@@ -343,9 +343,9 @@ footer{padding-top:32px;border-top:1px solid var(--rule);font-size:13px;color:va
         <div class="body">
           <h3>When clinicians reshape the model: A retrospective design case study of expert feedback in a data science capstone</h3>
           <p class="question">What changes when the people who understand the problem best shape a data system only after it has been built?</p>
-          <p>In my <a href="#p-capstone">early intervention capstone</a>, staff feedback moved our team from backend automation to dashboards clinicians could read and filter themselves. This study reconstructs a dated history of that project's design decisions from its artifacts, marks each as team-initiated or practitioner-initiated, and asks which practitioner concepts were missing from the original plan and what gathering them earlier would have changed. It will begin only after the client and my capstone advisor approve publication.</p>
+          <p>In my <a href="#p-capstone">early intervention capstone</a>, staff feedback moved our team from backend automation to dashboards clinicians could read and filter themselves. This study reconstructs a dated history of that project's design decisions from its artifacts, marks each as team-initiated or practitioner-initiated, and asks which practitioner concepts were missing from the original plan and what gathering them earlier would have changed. My capstone advisor has approved the analysis. The paper will be shared only after the partner organization approves publication.</p>
           <p class="takeaway"><b>What I am testing</b>Whether a documented, first-hand case supports the argument that domain experts should shape a data system's design early, and where it does not.</p>
-          <p><a href="papers/Choi_2026_Clinicians_Reshape_the_Model_protocol.pdf">Read the study protocol (PDF)</a>. Protocol only; no results yet.</p>
+          <p><a href="papers/Choi_2026_Clinicians_Reshape_the_Model_protocol.pdf">Read the study protocol (PDF)</a>, posted October 8, 2026.</p>
           <div class="tags"><span>Human-AI interaction</span><span>Design case study</span><span>Domain experts</span><span>Decision support</span><span>Dashboards</span></div>
         </div>
       </article>
@@ -651,7 +651,7 @@ footer{padding-top:32px;border-top:1px solid var(--rule);font-size:13px;color:va
 
     <footer>
       <span>Yeoeun Choi · Research portfolio</span>
-      <span>Updated September 2026</span>
+      <span>Updated November 2026</span>
     </footer>
   </main>
 </div>
