@@ -390,7 +390,7 @@ footer{padding-top:32px;border-top:1px solid var(--rule);font-size:13px;color:va
               <div class="stat"><span class="n gapc">0 of 258</span><span class="d">unanswerable questions the system declined to answer</span></div>
               <div class="stat"><span class="n">0.116</span><span class="d">Recall@1: the correct passage was retrieved first only 12% of the time</span></div>
             </div>
-            <figcaption><b>Retrieval helped about 15-fold</b> over the closed-book model, but the system answered every question it was given, including every one it had no evidence for.</figcaption>
+            <figcaption><b>Retrieval raised exact match from 2 to 31 correct answers out of 500</b>, but the system answered every question it was given, including every one it had no evidence for.</figcaption>
           </figure>
           <p class="takeaway"><b>What this taught me</b>A system can improve on every standard metric while still giving users no signal about when to doubt it. Grounding is not the same as knowing when to abstain, and I want to study how abstention and confidence cues change what users believe.</p>
           <p>Next steps I proposed: fine-tune the retriever on in-domain queries, add a learned "answerable" classifier on retrieval scores, and give the prompt and decoder an explicit way to refuse. I am now developing this project into a <a href="#r-preprint">preprint on what abstention failure means for learners</a>.</p>
